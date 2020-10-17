@@ -4,6 +4,7 @@ import math
 class operations():
     def __init__(self, result):
         self.result = result
+    
     def add(num1, num2):
         result = num1 + num2
         return result
@@ -43,7 +44,7 @@ def mainCalc():
                 if num2 == 0:
                     print("Division by zero is not possible!")
                 else: 
-                    print(f"The division of {num1} by {num2} yielded {operations.divide(num1, num2)}")
+                    print(f"The division of {num1} by {num2} yielded {operations.divide(num1, num2)}")      
             else:
                 print("It looks like you are attempting an operation that is not supported!")
 
