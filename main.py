@@ -1,12 +1,13 @@
 import sys
 import math
+from decimal import Decimal
 
 class operations():
     def __init__(self, result):
         self.result = result
     
     def add(num1, num2):
-        result = num1 + num2
+        result = (num1) + (num2)
         return result
 
     def substract(num1, num2):
@@ -34,12 +35,34 @@ class operations():
         else:
             sqrtNum1 = math.sqrt(num1)
             sqrtNum2 = math.sqrt(num2)
-            return (f'The square root of {num1} is {sqrtNum1}. The square root of {num2} is {sqrtNum2}')
+            return (f'The square root of {num1} is {sqrtNum1} {operations.resultInSciNot(sqrtNum1)}. The square root of {num2} is {sqrtNum2} {operations.resultInSciNot(sqrtNum2)}.')
 
     def cubeRoots(num1, num2):
         cubeRootNum1 = num1**(1/3) 
         cubeRootNum2 = num2**(1/3) 
-        return(f"The cube root of {num1} is {cubeRootNum1}. The cube root of {num2} is {cubeRootNum2}.")
+        return(f"The cube root of {num1} is {cubeRootNum1} {operations.resultInSciNot(cubeRootNum1)}. The cube root of {num2} is {cubeRootNum2} or {operations.resultInSciNot(cubeRootNum2)}.")
+
+    def resultInSciNot(result):
+        exponent = 0
+        isNegative = False
+        if result < 0:
+            isNegative = True
+        result = abs(result)
+        if result >= 10:
+            while result >= 10:
+                result = result * 0.1
+                exponent += 1
+        elif result < 1:
+            while result < 1:
+                result = result * 10
+                exponent += 1
+
+        result = round(result, 3) # rounding the value to 3 decimal points
+        if isNegative == True:
+            return(f"or -{result}e{exponent}")
+        else:
+            return(f"or {result}e{exponent}")
+
 def mainCalc():
     if __name__ == "__main__":
         correctValues = False
@@ -54,16 +77,20 @@ def mainCalc():
         if correctValues == True:
             whatToExecute = str(input("What mathematical operation would you like to solve? "))
             if whatToExecute.lower() == "add" or whatToExecute.lower() == "+": 
-                print(f"The addition of {num1} and {num2} yielded {operations.add(num1, num2)}")
+                result = operations.add(num1, num2)
+                print(f"The addition of {num1} and {num2} yielded {operations.add(num1, num2)}, {operations.resultInSciNot(result)}")
             elif whatToExecute.lower() == "substract" or whatToExecute.lower() == "-":
-                print(f"The substraction of {num1} by {num2} yielded {operations.substract(num1, num2)}")
+                result = operations.substract(num1, num2)
+                print(f"The substraction of {num1} by {num2} yielded {operations.substract(num1, num2)}, {operations.resultInSciNot(result)}")
             elif whatToExecute.lower() == "multiply" or whatToExecute.lower() == "*":
-                print(f"The multiplication of {num1} by {num2} yielded {operations.multiply(num1, num2)}")
+                result = operations.multiply(num1, num2)
+                print(f"The multiplication of {num1} by {num2} yielded {operations.multiply(num1, num2)}, {operations.resultInSciNot(result)}")
             elif whatToExecute.lower() == "divide" or whatToExecute.lower() == "/":
                 if num2 == 0:
                     print("Division by zero is not possible!")
                 else: 
-                    print(f"The division of {num1} by {num2} yielded {operations.divide(num1, num2)}")
+                    result = operations.divide(num1, num2)
+                    print(f"The division of {num1} by {num2} yielded {operations.divide(num1, num2)}, {operations.resultInSciNot(result)}")
             elif whatToExecute.lower() == "sqrt" or whatToExecute.lower() == "square root":
                 print(operations.squareRoots(num1, num2))     
             elif whatToExecute.lower() == "cbroot" or whatToExecute.lower() == "cube root":
