@@ -20,7 +20,26 @@ class operations():
     def divide(num1, num2):
         result = num1 / num2
         return result
+    
+    def squareRoots(num1, num2):
+        if num1 < 0 or num2 < 0:
+            sqrtNum1 = math.sqrt(abs(num1))
+            sqrtNum2 = math.sqrt(abs(num2))
+            if num1 < 0:
+                return (f'The square root of {num1} is {sqrtNum1}i. The square root of {num2} is {sqrtNum2}.')
+            elif num2 < 0:
+                return (f'The square root of {num1} is {sqrtNum1}. The square root of {num2} is {sqrtNum2}i.')
+            elif num1 < 0 and num2 < 0:
+                return (f'The square root of {num1} is {sqrtNum1}i. The square root of {num2} is {sqrtNum2}i.')
+        else:
+            sqrtNum1 = math.sqrt(num1)
+            sqrtNum2 = math.sqrt(num2)
+            return (f'The square root of {num1} is {sqrtNum1}. The square root of {num2} is {sqrtNum2}')
 
+    def cubeRoots(num1, num2):
+        cubeRootNum1 = num1**(1/3) 
+        cubeRootNum2 = num2**(1/3) 
+        return(f"The cube root of {num1} is {cubeRootNum1}. The cube root of {num2} is {cubeRootNum2}.")
 def mainCalc():
     if __name__ == "__main__":
         correctValues = False
@@ -44,7 +63,11 @@ def mainCalc():
                 if num2 == 0:
                     print("Division by zero is not possible!")
                 else: 
-                    print(f"The division of {num1} by {num2} yielded {operations.divide(num1, num2)}")      
+                    print(f"The division of {num1} by {num2} yielded {operations.divide(num1, num2)}")
+            elif whatToExecute.lower() == "sqrt" or whatToExecute.lower() == "square root":
+                print(operations.squareRoots(num1, num2))     
+            elif whatToExecute.lower() == "cbroot" or whatToExecute.lower() == "cube root":
+                print(operations.cubeRoots(num1, num2))
             else:
                 print("It looks like you are attempting an operation that is not supported!")
 
