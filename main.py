@@ -80,6 +80,7 @@ class operations():
         else:
             return(f"or {result}e{exponent}")
 
+
 def mainCalc():
     if __name__ == "__main__":
         correctValues = False
@@ -116,7 +117,7 @@ def mainCalc():
                 print(operations.factorial(num1), operations.factorial(num2))
             elif whatToExecute.lower() == "log2":
                 print(operations.log2(num1, num2))
-            elif whatToExecute.lower() == "log10":
+            elif whatToExecute.lower() == "log" or whatToExecute.lower() == "log10":
                 print(operations.log10(num1, num2))
             else:
                 print("It looks like you are attempting an operation that is not supported!")
