@@ -42,6 +42,14 @@ class operations():
         cubeRootNum2 = num2**(1/3) 
         return(f"The cube root of {num1} is {cubeRootNum1} {operations.resultInSciNot(cubeRootNum1)}. The cube root of {num2} is {cubeRootNum2} or {operations.resultInSciNot(cubeRootNum2)}.")
 
+    def factorial(num):
+        i = num
+        for i in range (1, num):
+            num = num * i
+            i -= 1
+        return num
+
+
     def resultInSciNot(result):
         exponent = 0
         isNegative = False
@@ -95,6 +103,8 @@ def mainCalc():
                 print(operations.squareRoots(num1, num2))     
             elif whatToExecute.lower() == "cbroot" or whatToExecute.lower() == "cube root":
                 print(operations.cubeRoots(num1, num2))
+            elif whatToExecute.lower() == "fact" or whatToExecute.lower() == "factorial":
+                print(operations.factorial(num1), operations.factorial(num2))
             else:
                 print("It looks like you are attempting an operation that is not supported!")
 
