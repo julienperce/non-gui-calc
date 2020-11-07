@@ -44,7 +44,7 @@ class operations():
 
     def factorial(num):
         i = num
-        for i in range (1, num):
+        for i in range (1, int(num)):
             num = num * i
             i -= 1
         return num
