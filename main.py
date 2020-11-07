@@ -54,6 +54,10 @@ class operations():
         result2 = math.sqrt(num2)
         return (f"Log2 {num1} = {result1}. Log2 {num2} = {result2}.")
 
+    def log10(num1, num2):
+        result1 = math.log10(num1)
+        result2 = math.log10(num2)
+        return (f"log10 {num1} = {result1}. Log10 {num2} = {result2}.")
 
     def resultInSciNot(result):
         exponent = 0
@@ -112,6 +116,8 @@ def mainCalc():
                 print(operations.factorial(num1), operations.factorial(num2))
             elif whatToExecute.lower() == "log2":
                 print(operations.log2(num1, num2))
+            elif whatToExecute.lower() == "log10":
+                print(operations.log10(num1, num2))
             else:
                 print("It looks like you are attempting an operation that is not supported!")
 
