@@ -49,6 +49,11 @@ class operations():
             i -= 1
         return num
 
+    def log2(num1, num2):
+        result1 = math.sqrt(num1)
+        result2 = math.sqrt(num2)
+        return (f"Log2 {num1} = {result1}. Log2 {num2} = {result2}.")
+
 
     def resultInSciNot(result):
         exponent = 0
@@ -105,6 +110,8 @@ def mainCalc():
                 print(operations.cubeRoots(num1, num2))
             elif whatToExecute.lower() == "fact" or whatToExecute.lower() == "factorial":
                 print(operations.factorial(num1), operations.factorial(num2))
+            elif whatToExecute.lower() == "log2":
+                print(operations.log2(num1, num2))
             else:
                 print("It looks like you are attempting an operation that is not supported!")
 
