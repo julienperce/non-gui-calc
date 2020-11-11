@@ -50,9 +50,9 @@ class operations():
         return num
 
     def log2(num1, num2):
-        result1 = math.sqrt(num1)
-        result2 = math.sqrt(num2)
-        return (f"Log2 {num1} = {result1}. Log2 {num2} = {result2}.")
+        result1 = math.log2(num1)
+        result2 = math.log2(num2)
+        return (f"Log2({num1}) = {result1}. Log2({num2}) = {result2}.")
 
     def log10(num1, num2):
         result1 = math.log10(num1)
